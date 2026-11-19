@@ -1,0 +1,7 @@
+# Safety net. The site's document root should be the public/ folder, and then
+# this file is never read. If the whole project is inside a web root instead,
+# this sends every request into public/, so config.php, data/ and src/ cannot
+# be fetched. In that case also set 'base_path' in config.php (see the README).
+
+RewriteEngine On
+RewriteRule ^(.*)$ public/$1 [L]

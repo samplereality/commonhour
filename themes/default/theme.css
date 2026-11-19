@@ -1,0 +1,128 @@
+/*
+ * Default theme: clean and minimal. White page, near-black ink, hairline
+ * rules, one green for availability.
+ *
+ * Everything the app looks like is decided here. To make your own theme, copy
+ * this folder, rename it, and change values. Keep one token per line and keep
+ * the "@group" comments: the style guide at /styleguide reads them.
+ *
+ * Rules written in this file always win over the app's base stylesheet, so you
+ * can also restyle any component directly (see the end of the file).
+ */
+
+:root {
+  color-scheme: light dark;
+
+  /* @group Color */
+  --bg: #ffffff;
+  --surface: #ffffff;
+  --surface-sunken: #f4f4f2;
+  --ink: #18181b;
+  --ink-muted: #63636b;
+  --accent: #18181b;
+  --accent-hover: #3f3f46;
+  --accent-ink: #ffffff;
+  --border: #e4e4e1;
+  --border-strong: #8a8a86;
+  --focus: #1b6fd1;
+  --error: #b42318;
+  --ok: #1a7f43;
+
+  /* @group Heatmap */
+  --heat-0: #ffffff;
+  --heat-max: #14532d;
+  --heat-steps: 6;
+  --cell-empty: #ffffff;
+  --cell-void: #f4f4f2;
+  --cell-selected: #1a7f43;
+  --cell-selected-ink: #ffffff;
+  --cell-highlight: #f0a92e;
+  --cell-highlight-ink: #18181b;
+
+  /* @group Type */
+  --font-body: system-ui, -apple-system, "Segoe UI", Roboto, "Helvetica Neue", sans-serif;
+  --font-display: system-ui, -apple-system, "Segoe UI", Roboto, "Helvetica Neue", sans-serif;
+  --font-mono: ui-monospace, "SF Mono", Menlo, Consolas, monospace;
+  --size-xs: 0.75rem;
+  --size-sm: 0.875rem;
+  --size-md: 1rem;
+  --size-lg: 1.25rem;
+  --size-xl: 1.875rem;
+  --weight-normal: 400;
+  --weight-bold: 600;
+  --leading: 1.55;
+  --leading-tight: 1.2;
+
+  /* @group Space and shape */
+  --space-1: 0.25rem;
+  --space-2: 0.5rem;
+  --space-3: 0.75rem;
+  --space-4: 1rem;
+  --space-5: 1.75rem;
+  --space-6: 3rem;
+  --radius: 0.25rem;
+  --border-width: 1px;
+  --focus-ring: 2px;
+  --shadow: none;
+  --disabled-opacity: 0.45;
+  --page-width: 64rem;
+  --measure: 36rem;
+  --pane-min: 21rem;
+  --field-min: 9rem;
+
+  /* @group Grid */
+  --cell-w: 3.5rem;
+  --cell-h: 1.375rem;
+  --cell-h-touch: 2rem;
+  --cell-gap: 0;
+  --time-w: 4.25rem;
+  --hour-rule: 1px solid var(--border-strong);
+  --half-hour-rule: 1px solid var(--border);
+  --slot-rule: 1px dotted var(--border);
+  --day-rule: 1px solid var(--border-strong);
+
+  /* @group Motion */
+  --ease: cubic-bezier(0.2, 0, 0, 1);
+  --duration: 120ms;
+}
+
+@media (prefers-color-scheme: dark) {
+  :root {
+    --bg: #111113;
+    --surface: #18181b;
+    --surface-sunken: #0b0b0c;
+    --ink: #ededed;
+    --ink-muted: #a1a1a8;
+    --accent: #ededed;
+    --accent-hover: #ffffff;
+    --accent-ink: #111113;
+    --border: #2a2a2e;
+    --border-strong: #70707a;
+    --focus: #7ab3ff;
+    --error: #ff8a7a;
+    --ok: #5fd08a;
+
+    --heat-0: #18181b;
+    --heat-max: #4ade80;
+    --cell-empty: #18181b;
+    --cell-void: #0b0b0c;
+    --cell-selected: #3fbf73;
+    --cell-selected-ink: #0c1a11;
+    --cell-highlight: #f0b24a;
+    --cell-highlight-ink: #18181b;
+  }
+}
+
+/*
+ * Component overrides go below. Examples (themes/alt uses all three):
+ *
+ *   Hand-picked heatmap stops instead of the two-color ramp:
+ *     [data-level="1"] { --heat-fill: #dff3ea; }
+ *     [data-level="2"] { --heat-fill: #a9dcc3; }
+ *
+ *   Style by head count:
+ *     .grid--heat .grid__cell[data-count="0"] { background-image: ...; }
+ *
+ *   Show the count inside each heatmap cell:
+ *     .grid__count { display: block; }
+ */

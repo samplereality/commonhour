@@ -1,0 +1,7 @@
+Options -Indexes
+
+RewriteEngine On
+# Real files (app.css, the JS modules) are served directly; everything else
+# goes to the front controller.
+RewriteCond %{REQUEST_FILENAME} !-f
+RewriteRule ^ index.php [L]
